@@ -3,7 +3,7 @@ import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import StoreFunctionlity from "./store/store.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Completedtodo from "./components/completedtodo.jsx";
+import Completedtodo from "./components/Completedtodo.jsx";
 import Pendingtodo from "./components/Pendingtodo.jsx";
 import Task from "./components/Task.jsx";
 import RegisterForm from "./components/RegisterForm.jsx";
