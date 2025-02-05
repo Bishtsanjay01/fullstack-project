@@ -53,7 +53,7 @@ function StoreFunctionlity({ children }) {
 
   useEffect(() => {
     axios
-      .get("https://fullstack-project44.onrender.com/tasks")
+      .get("http://localhost:8625/tasks")
       .then((response) => {
         dispatch({
           type: "set_tasks",
@@ -65,7 +65,7 @@ function StoreFunctionlity({ children }) {
 
   const handle_delete = (id) => {
     axios
-      .delete(`https://fullstack-project44.onrender.com/tasks/${id}`)
+      .delete(`http://localhost:8625/tasks/${id}`)
       .then(() => {
         dispatch({
           type: "delete",
@@ -77,7 +77,7 @@ function StoreFunctionlity({ children }) {
 
   const handle_add = (task) => {
     axios
-      .post("https://fullstack-project44.onrender.com/tasks", { task })
+      .post("http://localhost:8625/tasks", { task })
       .then((response) => {
         const newTask = {
           id: response.data.taskId,
@@ -95,7 +95,7 @@ function StoreFunctionlity({ children }) {
 
   const handle_search = (task) => {
     axios
-      .get(`https://fullstack-project44.onrender.com/tasks/search/${task}`)
+      .get(`http://localhost:8625/tasks/search/${task}`)
       .then((response) => {
         dispatch({
           type: "search",
@@ -107,7 +107,7 @@ function StoreFunctionlity({ children }) {
 
   const handle_completed = (task) => {
     axios
-      .put(`https://fullstack-project44.onrender.com/tasks/completed/${task.id}`, {
+      .put(`http://localhost:8625/tasks/completed/${task.id}`, {
         completed: !task.completed,
       })
       .then(() => {
@@ -133,7 +133,7 @@ function StoreFunctionlity({ children }) {
     }
 
     axios
-      .put(`https://fullstack-project44.onrender.com/tasks/${currentTaskId}`, {
+      .put(`http://localhost:8625/tasks/${currentTaskId}`, {
         task: updatedTaskText,
       })
       .then((response) => {
@@ -167,7 +167,7 @@ function StoreFunctionlity({ children }) {
       position: index, // Assign new position
     }));
 
-    fetch("https://fullstack-project44.onrender.com/tasks/reorder", {
+    fetch("http://localhost:8625/tasks/reorder", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ tasks: updatedOrder }),
